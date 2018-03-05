@@ -17,6 +17,8 @@ gem 'puma', '~> 3.7'
 
 # Backend
 gem 'jbuilder', '~> 2.5'
+gem 'devise'
+gem 'acts_as_list'
 
 # Configration
 gem 'config'
