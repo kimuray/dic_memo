@@ -1,24 +1,35 @@
-# README
+# DIC MEMO
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> Trelloっぽいタスク管理アプリを構築するプロジェクトです
 
-Things you may want to cover:
+## Version
 
-* Ruby version
+* Ruby 2.5.0
+* Rails 5.1.5
+* Vue.js (予定)
 
-* System dependencies
+## Setup
 
-* Configuration
+```
+git clone git@github.com:kimuray/dic_memo.git
+cd dic_memo
+bundle install --path vendor/bundle
+rails s
+```
 
-* Database creation
+## Development Flow
 
-* Database initialization
+1. `git checkout develop`
+2. `git pull origin develop`
+3. `git checkout -b feature/issues-{number}`
+4. `開発実施`
+  * `git add {file}`
+  * `git commit -m 'commit message'`
+5. `bundle exec rubocop -R`
+  * 警告があれば修正
+6. `git push origin feature/issues-{number}`
+7. Pull request
+8. レビュー →　レビュー修正
+9. マージ
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1-9を繰り返す
