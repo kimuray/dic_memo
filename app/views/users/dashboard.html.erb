@@ -1,2 +1,10 @@
 <h1>Users#dashboard</h1>
 <p>Find me in app/views/users/dashboard.html.erb</p>
+
+<% if user_signed_in? %>
+  <!-- リンクを踏むとdeleteではなくなぜかgetメソッドが飛びRouting Errorが発生。JS周りを修正しても直らなかったためconfig/initializers/devise.rbとともに応急処置的に記述 -->
+  <p><%= link_to "log out", destroy_user_session_path, method: :get %></p>
+  <!-- <p><%#= link_to "log out", destroy_user_session_path, method: :delete %></p> -->
+<% else %>
+  <p><%= link_to "user login", user_session_path, method: :get %></p>
+<% end %>
