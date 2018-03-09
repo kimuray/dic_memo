@@ -247,7 +247,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  # リンクを踏むとdeleteではなくなぜかgetメソッドが飛びRouting Errorが発生。JS周りを修正しても直らなかったため応急処置的に記述
+  # リンクを踏むとdeleteではなくgetメソッドが飛びRouting Errorが発生。Webpack導入後に config.sign_out_via = :delete に戻す
   config.sign_out_via = :get
   # config.sign_out_via = :delete
 
