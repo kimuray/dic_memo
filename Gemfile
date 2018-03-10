@@ -13,7 +13,7 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 
 # Frontend
-# gem 'webpacker'
+gem 'webpacker'
 
 # Backend
 gem 'jbuilder', '~> 2.5'
