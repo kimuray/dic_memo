@@ -2,9 +2,7 @@
 <p>Find me in app/views/users/dashboard.html.erb</p>
 
 <% if user_signed_in? %>
-  <!-- リンクを踏むとdeleteではなくgetメソッドが飛びRouting Errorが発生。Webpack導入後に method: :delete に戻す -->
-  <p><%= link_to "log out", destroy_user_session_path, method: :get %></p>
-  <!-- <p><%#= link_to "log out", destroy_user_session_path, method: :delete %></p> -->
+  <p><%= link_to "log out", destroy_user_session_path, method: :delete %></p>
 <% else %>
   <p><%= link_to "user login", user_session_path, method: :get %></p>
 <% end %>
