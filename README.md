@@ -14,8 +14,14 @@
 git clone git@github.com:kimuray/dic_memo.git
 cd dic_memo
 bundle install --path vendor/bundle
+yarn
+bin/webpack-dev-server
 rails s
 ```
+
+### 追記
+`yarn` : javascriptのパッケージマネージャー(Rubyでいうところのbundler的なもの)
+`bin/webpack-dev-server` : 開発中にjavascriptの変更を検知して開発環境用に自動でビルドしてくれるもの
 
 ## Development Flow
 
