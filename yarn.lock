@@ -6160,6 +6160,16 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
+siimple-colors@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/siimple-colors/-/siimple-colors-0.2.0.tgz#1ee3982d2577bdebfcf9c27fbc25e7bbbfbdd13a"
+
+siimple@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/siimple/-/siimple-3.0.0.tgz#73297c3630da68eb9bf725539fd80992f51f7e87"
+  dependencies:
+    siimple-colors "^0.2.0"
+
 simple-swizzle@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/simple-swizzle/-/simple-swizzle-0.2.2.tgz#a4da6b635ffcccca33f70d17cb92592de95e557a"
