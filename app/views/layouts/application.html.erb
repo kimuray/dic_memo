@@ -8,7 +8,19 @@
     <%= javascript_pack_tag 'application' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="siimple-bg--grey">
+    <div class="siimple-layout">
+      <header class="siimple-navbar siimple-navbar--blue">
+        <div class="siimple-layout--left">
+          <%= link_to 'DIC memo', root_path, class: 'siimple-navbar-title' %>
+        </div>
+        <div class="siimple-layout--right">
+          <a class="siimple-navbar-link">Menu</a>
+        </div>
+      </header>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
