@@ -1,0 +1,55 @@
+<h1>Users#edit</h1>
+<p>Find me in app/views/users/edit.html.erb</p>
+<p><%= link_to "dashboard", root_path %></p>
+
+<%= form_with(model: @user, local: true) do |form| %>
+  <% if @user.errors.any? %>
+    <div id = "error_explanation" class = "siimple-form-field">
+      <h2><%= pluralize(@user.errors.count, "エラー") %>があるので、保存ができません</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class = "siimple-form-field">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "siimple-input siimple-input--fluid", autofocus: true %>
+  </div>
+
+  <div class = "siimple-form-field">
+    <%= form.label :email %>
+    <%= form.email_field :email, class: "siimple-input siimple-input--fluid" %>
+  </div>
+
+  <div class = "siimple-form-field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class = "siimple-form-field">
+     <%= image_tag @user.image.url(:medium) %>
+  </div>
+
+  <div class = "siimple-form-field">
+    <%= form.label :"Current Password" %>
+    <%= form.password_field :current_password, class: "siimple-input siimple-input--fluid" %>
+  </div>
+
+  <div class = "siimple-form-field">
+    <%= form.label :"New Password" %>
+    <%= form.password_field :password, class: "siimple-input siimple-input--fluid" %>
+  </div>
+
+  <div class = "siimple-form-field">
+    <%= form.label :"Confirmation Password" %>
+    <%= form.password_field :password_confirmation, class: "siimple-input siimple-input--fluid" %>
+  </div>
+
+  <div class = "siimple-form-field">
+    <%= form.submit class: "siimple-btn siimple-btn-navy" %>
+  </div>
+<% end %>
