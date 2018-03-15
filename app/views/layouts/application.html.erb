@@ -14,12 +14,12 @@
           <%= link_to 'DIC memo', root_path, class: 'siimple-navbar-title' %>
         </div>
         <div id="js-menu" class="siimple-layout--right">
-          <a class="menu-btn" :class="{ active: isActive }" @click="toggleMenu">
+          <a class="menu-btn" @click="toggleMenu">
             <span class="menu-btn-bar menu-btn-bar--top"></span>
             <span class="menu-btn-bar menu-btn-bar--center"></span>
             <span class="menu-btn-bar menu-btn-bar--bottom"></span>
           </a>
-          <drawr-menu v-show="isActive" @close="toggleMenu"></drawr-menu>
+          <drawr-menu :is-active="isActive" @close="toggleMenu"></drawr-menu>
         </div>
       </header>
       <div class="container">

@@ -3,11 +3,16 @@
   position: absolute;
   background: $navy;
   top: 0;
-  right: 0;
+  right: -300px;
   width: 240px;
+  transition: all .5s;
   z-index: 100;
 
   @at-root {
+    &.active {
+      right: 0;
+    }
+
     &-list {
       list-style: none;
       padding: 0;
@@ -74,22 +79,6 @@
         margin: 9px 0;
         transition: all 0.2s;
         transform-origin: 0 0;
-      }
-
-      .active &-bar {
-        width: 38px;
-      }
-
-      .active &-bar--top {
-        transform: rotate(37deg);
-      }
-
-      .active &-bar--center {
-        opacity: 0;
-      }
-
-      .active &-bar--bottom {
-        transform: rotate(-37deg);
       }
     }
   }
