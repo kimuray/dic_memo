@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @assign = @project.assigns.new
   end
 
   def new
@@ -20,6 +21,7 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.new(project_params)
     if @project.save
+      current_user.assigns.create!(project_id: @project.id)
       redirect_to @project, notice: 'Projectの作成が完了いたしました'
     else
       render :new
