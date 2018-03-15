@@ -1,0 +1,23 @@
+.menu {
+  @at-root {
+    &-btn {
+      display: block;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0 15px 0 0;
+      width: 30px;
+      color: #fff;
+      cursor: pointer;
+
+      &-bar {
+        display: block;
+        height: 2px;
+        background-color: #fff;
+        margin: 8px 0;
+        transition: all 0.2s;
+        transform-origin: 0 0;
+      }
+    }
+  }
+}
