@@ -1,0 +1,6 @@
+<p id="notice"><%= notice %></p>
+
+プロジェクト名：<%= @project.name %>
+製作者：<%= @project.user.try(:name) %>
+<%= link_to 'Edit', edit_project_path(@project) if current_user == @project.user %> |
+<%= link_to 'Back', projects_path %>
