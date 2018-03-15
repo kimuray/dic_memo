@@ -11,6 +11,9 @@ import 'stylesheets/application';
 import Rails from 'rails-ujs';
 import Vue from 'vue/dist/vue.esm';
 
+// TODO: Vueの配置場所検討
+import DrawrMenu from './components/DrawrMenu.vue';
+
 require.context('images', true, /\.(png|jpg|jpeg|svg)$/)
 
 Rails.start();
@@ -18,6 +21,9 @@ Rails.start();
 // TODO: Vueの配置場所を検討する必要あり
 new Vue({
   el: '#js-menu',
+  components: {
+    DrawrMenu,
+  },
   data: {
     isActive: false,
   },

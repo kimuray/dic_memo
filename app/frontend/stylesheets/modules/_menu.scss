@@ -1,4 +1,13 @@
 .menu {
+  display: block;
+  position: absolute;
+  background: $navy;
+  top: 0;
+  right: 0;
+  width: 240px;
+  z-index: 100;
+
+
   @at-root {
     &-btn {
       display: block;
@@ -9,6 +18,7 @@
       width: 30px;
       color: #fff;
       cursor: pointer;
+      z-index: 101;
 
       &-bar {
         display: block;
