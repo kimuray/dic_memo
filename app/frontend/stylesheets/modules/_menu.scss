@@ -7,8 +7,26 @@
   width: 240px;
   z-index: 100;
 
-
   @at-root {
+    &-list {
+      list-style: none;
+      padding: 0;
+      &-item {
+        border-bottom: 1px solid #fff;
+
+        &:hover {
+          opacity: 0.6;
+        }
+
+        &-link {
+          color: #fff;
+          display: block;
+          padding: 20px 40px;
+          text-decoration: none;
+        }
+      }
+    }
+
     &-btn {
       display: block;
       background: none;

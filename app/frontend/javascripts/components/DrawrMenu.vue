@@ -1,16 +1,16 @@
 <template>
 <div class="menu" :class="{ active: isActive }">
   <ul class="menu-list">
-    <a href="#">
-      <li class="menu-list-item">
+    <li class="menu-list-item">
+      <a href="#" class="menu-list-item-link">
         Link1
-      </li>
-    </a>
-    <a href="#">
-      <li class="menu-list-item">
+      </a>
+    </li>
+    <li class="menu-list-item">
+      <a href="#" class="menu-list-item-link">
         Link2
-      </li>
-    </a>
+      </a>
+    </li>
   </ul>
 </div>
 </template>
