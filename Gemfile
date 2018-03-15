@@ -12,8 +12,9 @@ gem 'rails', '~> 5.1.4'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 
-# Frontend
+# View/Front
 gem 'webpacker'
+gem 'paperclip'
 
 # Backend
 gem 'jbuilder', '~> 2.5'
