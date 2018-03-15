@@ -9,7 +9,21 @@
 
 import 'stylesheets/application';
 import Rails from 'rails-ujs';
+import Vue from 'vue/dist/vue.esm';
 
 require.context('images', true, /\.(png|jpg|jpeg|svg)$/)
 
 Rails.start();
+
+// TODO: Vueの配置場所を検討する必要あり
+new Vue({
+  el: '#js-menu',
+  data: {
+    isActive: false,
+  },
+  methods: {
+    toggleMenu() {
+      this.isActive = !this.isActive;
+    }
+  }
+})

@@ -14,9 +14,25 @@
         display: block;
         height: 2px;
         background-color: #fff;
-        margin: 8px 0;
+        margin: 9px 0;
         transition: all 0.2s;
         transform-origin: 0 0;
+      }
+
+      .active &-bar {
+        width: 38px;
+      }
+
+      .active &-bar--top {
+        transform: rotate(37deg);
+      }
+
+      .active &-bar--center {
+        opacity: 0;
+      }
+
+      .active &-bar--bottom {
+        transform: rotate(-37deg);
       }
     }
   }
