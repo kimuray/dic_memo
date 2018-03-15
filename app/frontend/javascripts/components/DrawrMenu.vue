@@ -1,6 +1,9 @@
 <template>
 <div class="menu" :class="{ active: isActive }">
   <ul class="menu-list">
+    <li>
+      <a class="menu-close-btn" @click.prevent="closeMenu"></a>
+    </li>
     <li class="menu-list-item">
       <a href="#" class="menu-list-item-link">
         Link1
@@ -32,6 +35,9 @@ export default {
   methods: {
     setWindowHeight() {
       this.$el.style.height = `${window.innerHeight}px`;
+    },
+    closeMenu() {
+      this.$emit('close');
     }
   }
 }
