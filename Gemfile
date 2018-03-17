@@ -14,12 +14,12 @@ gem 'puma', '~> 3.7'
 
 # View/Front
 gem 'webpacker'
-gem 'paperclip'
 
 # Backend
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'acts_as_list'
+gem 'paperclip'
 
 # Configration
 gem 'config'
