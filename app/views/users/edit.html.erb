@@ -31,7 +31,7 @@
   </div>
 
   <div class = "siimple-form-field">
-     <%= image_tag @user.image.url(:medium) %>
+     <%= image_tag @user.image.url(:medium) if @user.image.present? %>
   </div>
 
   <div class = "siimple-form-field">
