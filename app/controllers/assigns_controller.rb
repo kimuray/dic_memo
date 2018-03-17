@@ -7,11 +7,11 @@ class AssignsController < ApplicationController
   end
 
   private
-    def assign_params
-      params.require(:assign).permit(:project_id)
-    end
+  def assign_params
+    params.require(:assign).permit(:project_id)
+  end
 
-    def assign_user_params
-      params.require(:user).permit(:email)
-    end
+  def assign_user_params
+    params.require(:user).permit(:email)
+  end
 end
