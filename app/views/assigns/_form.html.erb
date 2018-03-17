@@ -6,7 +6,7 @@
   <p>招待したい人のアドレスを打ち込んでください。複数人の場合は、カンマ区切りで打ち込んでください<br>無効なアドレスは登録されません</p>
   <div class = "siimple-form-field">
     <%= fields_for User.new do |user| %>
-      <%= user.text_field :email %>
+      <%= user.text_area :email %>
     <% end %>
   </div>
 
