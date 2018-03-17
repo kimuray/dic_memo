@@ -5,7 +5,7 @@
 <%= link_to 'Edit', edit_project_path(@project) if current_user == @project.user %> |
 <%= link_to 'Back', projects_path %>
 
-<%= render partial: 'assigns/form', locals: { assign: @assign, project: @project } %>
+<%= render partial: 'assigns/form', locals: { project: @project } %>
 
 <% if @informations %>
   <% @informations.each do |information| %>
