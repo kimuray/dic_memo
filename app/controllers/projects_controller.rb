@@ -12,14 +12,14 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = current_user.projects.new
+    @project = current_user.projects.build
   end
 
   def edit
   end
 
   def create
-    @project = current_user.projects.new(project_params)
+    @project = current_user.projects.build(project_params)
     if @project.save
       current_user.assigns.create!(project_id: @project.id)
       redirect_to @project, notice: 'Projectの作成が完了いたしました'
