@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.build(project_params)
     @assign = @project.assigns.build(user: current_user)
     if @project.save && @assign.save
-      redirect_to @project, notice: 'Projectの作成が完了いたしました'
+      redirect_to @project, notice: I18n.t("notice.projects.create")
     else
       render :new
     end
@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
-      redirect_to @project, notice: 'Projectの更新が完了いたしました'
+      redirect_to @project, notice: I18n.t("notice.projects.update")
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy
-    redirect_to projects_url, notice: 'Projectの削除が完了いたしました'
+    redirect_to projects_url, notice: I18n.t("notice.projects.destroy")
   end
 
   private
@@ -47,7 +47,7 @@ class ProjectsController < ApplicationController
     end
 
     def authenticate_productor!
-      redirect_to @project, notice: 'Projectの作成者のみが編集削除を行えます' unless current_user == @project.user
+      redirect_to @project, notice: I18n.t("notice.projects.not_edit") unless current_user == @project.user
     end
 
     def project_params
