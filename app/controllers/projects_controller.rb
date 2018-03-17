@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   before_action :authenticate_productor!, only: [:edit, :update, :destroy]
 
   def index
-    @projects = Project.all
+    @projects = current_user.assigned_projects
   end
 
   def show
