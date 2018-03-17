@@ -1,0 +1,7 @@
+---
+ja:
+  activerecord:
+    attributes:
+  notice:
+    users:
+      update: "User情報の更新が完了しました"

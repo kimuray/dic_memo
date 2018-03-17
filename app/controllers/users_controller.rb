@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(users_params)
-      redirect_to edit_user_path(@user), notice: 'User情報の更新が終わりました'
+      redirect_to edit_user_path(@user), notice: I18n.t("notice.users.update")
     else
       render 'edit'
     end
