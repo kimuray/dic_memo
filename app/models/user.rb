@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :assigned_projects, through: :assigns, source: :project
 
   def self.assigned!(assign_params, user_params)
-    emails = user_params[:email].split(",")
+    emails = user_params[:email].split(" ")
     informations = []
     emails.each do |email|
       email.strip!
