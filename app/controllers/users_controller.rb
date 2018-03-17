@@ -17,11 +17,11 @@ class UsersController < ApplicationController
   end
 
   private
-    def users_params
-      params.require(:user).permit(:name, :email, :image, :password)
-    end
+  def users_params
+    params.require(:user).permit(:name, :email, :image, :password)
+  end
 
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 end
