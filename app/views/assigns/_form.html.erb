@@ -1,6 +1,6 @@
 <h3>このプロジェクトにユーザーをassignします！</h3>
 
-<%= form_with(model: [project, project.assigns.build], local: true) do |form| %>
+<%= form_with(model: [project, project.assigns.last], local: true) do |form| %>
   <%= form.hidden_field :project_id %>
 
   <p>招待したい人のアドレスを打ち込んでください。複数人の場合は、半角スペースで区切って打ち込んでください<br>無効なアドレスは登録されません</p>
