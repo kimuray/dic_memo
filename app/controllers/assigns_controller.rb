@@ -12,6 +12,6 @@ class AssignsController < ApplicationController
   end
 
   def assign_user_params
-    params.require(:user).permit(:email)
+    params.require(:emails)
   end
 end

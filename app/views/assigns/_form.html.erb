@@ -5,9 +5,7 @@
 
   <p>招待したい人のアドレスを打ち込んでください。複数人の場合は、半角スペースで区切って打ち込んでください<br>無効なアドレスは登録されません</p>
   <div class = "siimple-form-field">
-    <%= fields_for User.new do |user| %>
-      <%= user.text_area :email %>
-    <% end %>
+    <%= text_area_tag 'emails' %>
   </div>
 
   <div class = "siimple-form-field">
