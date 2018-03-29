@@ -7,5 +7,9 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :assigns
+    resources :lines do
+      resources :entries
+      resources :tasks
+    end
   end
 end
