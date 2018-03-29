@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(users_params)
+      sign_in(@user, bypass: true) if current_user.id == @user.id
       redirect_to edit_user_path(@user), notice: I18n.t("notice.users.update")
     else
       render 'edit'

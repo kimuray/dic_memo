@@ -2,6 +2,8 @@
 <p>Find me in app/views/users/edit.html.erb</p>
 <p><%= link_to "dashboard", root_path %></p>
 
+<p><%= notice %></p>
+
 <%= form_with(model: @user, local: true) do |form| %>
   <% if @user.errors.any? %>
     <div id = "error_explanation" class = "siimple-form-field">
@@ -34,20 +36,21 @@
      <%= image_tag @user.image.url(:medium) if @user.image.present? %>
   </div>
 
-  <div class = "siimple-form-field">
-    <%= form.label :"Current Password" %>
-    <%= form.password_field :current_password, class: "siimple-input siimple-input--fluid" %>
-  </div>
+<!-- 上下二つのパスワード入力欄がうまく機能していない。deviseのコントローラ使ってないから？ -->
+  <!-- <div class = "siimple-form-field">
+    <%#= form.label :"Current Password" %>
+    <%#= form.password_field :current_password, class: "siimple-input siimple-input--fluid" %>
+  </div> -->
 
   <div class = "siimple-form-field">
-    <%= form.label :"New Password" %>
+    <%= form.label :"Password" %>
     <%= form.password_field :password, class: "siimple-input siimple-input--fluid" %>
   </div>
 
-  <div class = "siimple-form-field">
-    <%= form.label :"Confirmation Password" %>
-    <%= form.password_field :password_confirmation, class: "siimple-input siimple-input--fluid" %>
-  </div>
+  <!-- <div class = "siimple-form-field">
+    <%#= form.label :"Confirmation Password" %>
+    <%#= form.password_field :password_confirmation, class: "siimple-input siimple-input--fluid" %>
+  </div> -->
 
   <div class = "siimple-form-field">
     <%= form.submit class: "siimple-btn siimple-btn--green" %>
