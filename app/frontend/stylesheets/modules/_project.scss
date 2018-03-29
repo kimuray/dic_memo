@@ -16,6 +16,7 @@
        display: inline-block;
        margin: 20px 5px;
        width: 300px;
+       vertical-align: top;
 
        &-container {
          background-color: $gray;
@@ -43,6 +44,25 @@
            padding: 8px;
            display: block;
            cursor: pointer;
+
+           &-badges {
+             margin-top: 5px;
+           }
+
+           &-badge {
+             margin-right: 5px;
+           }
+         }
+       }
+
+       &-add-link {
+         display: block;
+         cursor: pointer;
+         margin-top: 5px;
+         padding: 0 8px 8px 8px;
+
+         &:hover {
+           text-decoration: underline;
          }
        }
      }
