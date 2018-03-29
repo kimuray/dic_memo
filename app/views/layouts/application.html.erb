@@ -19,7 +19,7 @@
             <span class="menu-btn-bar menu-btn-bar--center"></span>
             <span class="menu-btn-bar menu-btn-bar--bottom"></span>
           </a>
-          <drawr-menu :is-active="isActive" @close="toggleMenu"></drawr-menu>
+          <drawr-menu v-show="isActive" :is-active="isActive" @close="toggleMenu"></drawr-menu>
         </div>
       </header>
       <div class="container full-height">
