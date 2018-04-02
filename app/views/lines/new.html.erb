@@ -1,0 +1,26 @@
+<h1>New Line</h1>
+
+<%= form_with(model: [@project, @line], local: true) do |form| %>
+  <% if @line.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@line.errors.count, "error") %> prohibited this line from being saved:</h2>
+
+      <ul>
+      <% @line.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class = "siimple-form-field">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "siimple-input siimple-input--fluid", autofocus: true %>
+  </div>
+
+  <div class = "siimple-form-field">
+    <%= form.submit class: "siimple-btn siimple-btn--green" %>
+  </div>
+
+  <%= form.hidden_field :project_id, value: @project.id %>
+<% end %>

@@ -1,0 +1,22 @@
+<h3>このプロジェクトのライン（仮）です</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% lines.each do |line| %>
+      <tr>
+        <td>ライン名：<%= line.name %></td>
+        <td>製作者：<%= line.user.try(:name) %></td>
+        <td><%= link_to 'Edit', edit_project_line_path(project, line) if current_user == line.user %></td>
+        <td><%= link_to 'Destroy', project_line(project, line), method: :delete, data: { confirm: 'Are you sure?' } if current_user == line.user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Line', new_project_line_path(project) %>
