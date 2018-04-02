@@ -5,5 +5,10 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     passwords: 'users/passwords'
   }
+
+  resources :projects do
+    resources :assigns
+  end
+
   resources :users, only: [:edit, :update]
 end
