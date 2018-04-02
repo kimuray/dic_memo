@@ -12,3 +12,5 @@
     <div class="siimple-alert siimple-alert--teal"><%= information %></div>
   <% end %>
 <% end %>
+
+<%= render partial: 'lines/index', locals: { project: @project, lines: @lines } %>
