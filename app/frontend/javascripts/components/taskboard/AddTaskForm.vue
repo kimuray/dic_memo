@@ -3,14 +3,15 @@
     <form v-if="isOpenForm" @submit.prevent="onSubmit">
       <div class="siimple-form-field" style="text-align: center;">
         <textarea v-model="content"
-                  class="siimple-textarea siimple-textarea--fluid task-textarea"
+                  class="siimple-textarea task-textarea bg-white"
                   placeholder="タスクを入力してください"></textarea>
       </div>
 
-      <a @click.prevent="toggleForm" class="task-cancel">キャンセル</a>
-      <button type="submit"
-              class="siimple-btn siimple-btn--blue"
-              style="float: right">追加</button>
+      <div class="task-menu">
+        <a @click.prevent="toggleForm" class="task-cancel">キャンセル</a>
+        <button type="submit"
+                class="siimple-btn siimple-btn--blue">追加</button>
+      </div>
     </form>
 
     <a v-else @click.prevent="toggleForm" class="project-line-add-link">タスク追加</a>

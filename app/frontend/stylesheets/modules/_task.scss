@@ -3,7 +3,6 @@
 }
 
 .task-textarea {
-  background-color: #fff;
   width: calc(100% - 20px);
 }
 
@@ -13,4 +12,10 @@
   &:hover {
     text-decoration: underline;
   }
+}
+
+.task-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
