@@ -12,7 +12,7 @@
               <ProjectTask :task="task" />
             </draggable>
           </div>
-          <a class="project-line-add-link">タスク追加</a>
+          <AddTaskForm />
         </div>
       </div>
     </div>
@@ -22,6 +22,7 @@
 <script>
 import draggable from 'vuedraggable';
 import ProjectTask from './ProjectTask.vue';
+import AddTaskForm from './AddTaskForm';
 import store from '../../store/taskboard';
 import { mapState } from 'vuex';
 
@@ -30,6 +31,7 @@ export default {
   components: {
     draggable,
     ProjectTask,
+    AddTaskForm,
   },
   computed: {
     ...mapState(['project'])

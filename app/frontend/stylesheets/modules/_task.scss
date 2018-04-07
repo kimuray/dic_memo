@@ -1,0 +1,16 @@
+.task-form {
+  padding: 0 10px 20px 10px;
+}
+
+.task-textarea {
+  background-color: #fff;
+  width: calc(100% - 20px);
+}
+
+.task-cancel {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
