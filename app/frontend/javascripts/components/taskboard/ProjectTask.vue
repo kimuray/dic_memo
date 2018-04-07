@@ -42,12 +42,18 @@ export default {
       this.deleteTask(this.task);
     },
     callUpdateTask() {
-      alert(this.tmpContent);
+      this.task.tmpContent = this.tmpContent;
+      this.updateTask(this.task);
+      this.clearForm();
     },
     toggleEditForm() {
       this.isEdit = !this.isEdit;
     },
-    ...mapActions(['deleteTask'])
+    clearForm() {
+      this.tmpContent = '';
+      this.toggleEditForm();
+    },
+    ...mapActions(['deleteTask', 'updateTask'])
   },
 }
 </script>
