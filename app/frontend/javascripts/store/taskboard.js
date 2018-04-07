@@ -46,12 +46,20 @@ const actions = {
   addTask: ({ commit }, task) => {
     commit('addTask', { task });
   },
+  deleteTask: ({ commit }, task) => {
+    commit('deleteTask', { task });
+  },
 }
 
 const mutations = {
   addTask(state, { task }) {
     const lineId = state.project.findIndex(({id}) => id === task.lineId);
     state.project[lineId].tasks.push(task);
+  },
+  deleteTask(state, { task }) {
+    const lineId = state.project.findIndex(({id}) => id === task.lineId);
+    const newTasks = state.project[lineId].tasks.filter(t => t.id !== task.id);
+    state.project[lineId].tasks = newTasks;
   },
 }
 
