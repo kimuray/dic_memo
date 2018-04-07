@@ -1,114 +1,27 @@
-<div class="project">
+<% content_for :loading_vuejs do %>
+  <%= javascript_pack_tag 'views/taskboard' %>
+<% end %>
+
+<div id="js-task-board" class="project">
   <div class="project-board">
-    <div class="project-line">
+    <div class="project-line" v-for="line in project">
       <div class="project-line-container">
         <div class="project-line-title">
-          <h3 class="project-line-title-text">項目1</h3>
+          <h3 class="project-line-title-text">{{ line.name }}</h3>
         </div>
-        <div class="project-line-list">
-          <a class="project-line-list-item">
-            <div class="project-line-list-item-detail">
-              タスク１<br />
-              <div class="project-line-list-item-badges">
-                <span class="fa fa-edit project-line-list-item-badge"></span>
-                <span class="fa fa-trash project-line-list-item-badge"></span>
-              </div>
-            </div>
-          </a>
-          <a class="project-line-list-item">
-            <div class="project-line-list-item-detail">
-              タスク2
-              <div class="project-line-list-item-badges">
-                <span class="fa fa-edit project-line-list-item-badge"></span>
-                <span class="fa fa-trash project-line-list-item-badge"></span>
-              </div>
-            </div>
-          </a>
-          <a class="project-line-list-item">
-            <div class="project-line-list-item-detail">
-              タスク3
-              <div class="project-line-list-item-badges">
-                <span class="fa fa-edit project-line-list-item-badge"></span>
-                <span class="fa fa-trash project-line-list-item-badge"></span>
-              </div>
-            </div>
-          </a>
-        </div>
-        <a class="project-line-add-link">タスク追加</a>
-      </div>
-    </div>
 
-    <div class="project-line">
-      <div class="project-line-container">
-        <div class="project-line-title">
-          <h3 class="project-line-title-text">項目2</h3>
-        </div>
         <div class="project-line-list">
-          <a class="project-line-list-item">
-            <div class="project-line-list-item-detail">
-              タスク１<br />
-              <div class="project-line-list-item-badges">
-                <span class="fa fa-edit project-line-list-item-badge"></span>
-                <span class="fa fa-trash project-line-list-item-badge"></span>
+          <draggable :options="options" element="div" v-for="task in line.tasks">
+            <a class="project-line-list-item">
+              <div class="project-line-list-item-detail">
+                {{ task.content }}<br />
+                <div class="project-line-list-item-badges">
+                  <span class="fa fa-edit project-line-list-item-badge"></span>
+                  <span class="fa fa-trash project-line-list-item-badge"></span>
+                </div>
               </div>
-            </div>
-          </a>
-          <a class="project-line-list-item">
-            <div class="project-line-list-item-detail">
-              タスク2
-              <div class="project-line-list-item-badges">
-                <span class="fa fa-edit project-line-list-item-badge"></span>
-                <span class="fa fa-trash project-line-list-item-badge"></span>
-              </div>
-            </div>
-          </a>
-          <a class="project-line-list-item">
-            <div class="project-line-list-item-detail">
-              タスク3
-              <div class="project-line-list-item-badges">
-                <span class="fa fa-edit project-line-list-item-badge"></span>
-                <span class="fa fa-trash project-line-list-item-badge"></span>
-              </div>
-            </div>
-          </a>
-        </div>
-        <a class="project-line-add-link">タスク追加</a>
-      </div>
-    </div>
-
-    <div class="project-line">
-      <div class="project-line-container">
-        <div class="project-line-title">
-          <h3 class="project-line-title-text">項目3</h3>
-        </div>
-        <div class="project-line-list">
-          <a class="project-line-list-item">
-            <div class="project-line-list-item-detail">
-              タスク１<br />
-              <div class="project-line-list-item-badges">
-                <span class="fa fa-edit project-line-list-item-badge"></span>
-                <span class="fa fa-trash project-line-list-item-badge"></span>
-              </div>
-            </div>
-          </a>
-          <a class="project-line-list-item">
-            <div class="project-line-list-item-detail">
-              タスク2
-              <div class="project-line-list-item-badges">
-                <span class="fa fa-edit project-line-list-item-badge"></span>
-                <span class="fa fa-trash project-line-list-item-badge"></span>
-              </div>
-            </div>
-          </a>
-          <a class="project-line-list-item">
-            <div class="project-line-list-item-detail">
-              タスク3
-              <div class="project-line-list-item-badges">
-                <span class="fa fa-edit project-line-list-item-badge"></span>
-                <span class="fa fa-trash project-line-list-item-badge"></span>
-              </div>
-            </div>
-          </a>
+            </a>
+          </draggable>
         </div>
         <a class="project-line-add-link">タスク追加</a>
       </div>
