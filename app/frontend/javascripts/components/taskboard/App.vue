@@ -12,7 +12,7 @@
               <ProjectTask :task="task" />
             </draggable>
           </div>
-          <AddTaskForm />
+          <AddTaskForm :lineId="line.id" />
         </div>
       </div>
     </div>

@@ -2,7 +2,8 @@
   <div class="task-form">
     <form v-if="isOpenForm" @submit.prevent="onSubmit">
       <div class="siimple-form-field" style="text-align: center;">
-        <textarea class="siimple-textarea siimple-textarea--fluid task-textarea"
+        <textarea v-model="content"
+                  class="siimple-textarea siimple-textarea--fluid task-textarea"
                   placeholder="タスクを入力してください"></textarea>
       </div>
 
@@ -17,10 +18,16 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
+  props: {
+    lineId: Number,
+  },
   data() {
     return {
       isOpenForm: false,
+      content: '',
     }
   },
   methods: {
@@ -28,8 +35,18 @@ export default {
       this.isOpenForm = !this.isOpenForm;
     },
     onSubmit() {
-      alert('submit');
-    }
-  }
+      const task = {
+        lineId: this.lineId,
+        content: this.content,
+      }
+      this.addTask(task);
+      this.clearForm();
+    },
+    clearForm() {
+      this.content = '';
+      this.toggleForm();
+    },
+    ...mapActions(['addTask'])
+  },
 }
 </script>
