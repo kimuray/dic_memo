@@ -1,0 +1,22 @@
+<h3>このプロジェクトのタスク（仮）です</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% tasks.each do |task| %>
+      <tr>
+        <td>タスク概要：<%= task.content %></td>
+        <td>製作者：<%= task.user.name %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) if current_user == task.user %></td>
+        <td><%= link_to 'Destroy', task_path(task), method: :delete, data: { confirm: '本当に消して良いですか？' } if current_user == task.user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New task', new_task_path %>
