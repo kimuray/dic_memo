@@ -6,9 +6,3 @@
 <%= link_to 'Back', projects_path %>
 
 <%= render partial: 'assigns/form', locals: { project: @project } %>
-
-<% if @informations %>
-  <% @informations.each do |information| %>
-    <div class="siimple-alert siimple-alert--teal"><%= information %></div>
-  <% end %>
-<% end %>

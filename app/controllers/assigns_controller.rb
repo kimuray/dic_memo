@@ -1,9 +1,8 @@
 class AssignsController < ApplicationController
   def create
-    @informations = User.assigned!(assign_params, assign_user_params)
     @project = Project.find(assign_params[:project_id])
-    @assign = @project.assigns.new
-    render 'projects/show'
+    User.assigned!(assign_params, assign_user_params, @project)
+    redirect_to @project
   end
 
   private
