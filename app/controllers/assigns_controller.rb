@@ -3,7 +3,7 @@ class AssignsController < ApplicationController
     @emails = assign_user_params
     @project = Project.find(assign_params[:project_id])
     Project.assigned!(@project, @emails)
-    redirect_to @project
+    redirect_to @project, notice: I18n.t("notice.assigns.create")
   end
 
   private
