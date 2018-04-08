@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
   def show
     @project.assigns.build
     @lines = @project.lines
+    @tasks = Task.all
   end
 
   def new
