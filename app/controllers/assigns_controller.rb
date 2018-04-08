@@ -1,7 +1,8 @@
 class AssignsController < ApplicationController
   def create
+    @emails = assign_user_params
     @project = Project.find(assign_params[:project_id])
-    User.assigned!(assign_params, assign_user_params, @project)
+    Project.assigned!(@project, @emails)
     redirect_to @project
   end
 
@@ -11,6 +12,6 @@ class AssignsController < ApplicationController
   end
 
   def assign_user_params
-    params.require(:emails)
+    params.require(:emails).split("\s")
   end
 end
