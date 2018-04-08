@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :assigns, dependent: :destroy
   has_many :assigned_projects, through: :assigns, source: :project
   has_many :lines, dependent: :destroy
+  has_many :tasks
 
   def self.assigned!(assign_params, user_params)
     emails = user_params.split("\s")
