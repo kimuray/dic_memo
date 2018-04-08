@@ -14,3 +14,7 @@ ja:
       create: "Line情報の作成が完了しました"
       update: "Line情報の更新が完了しました"
       destroy: "Line情報の削除が完了しました"
+    tasks:
+      create: "Task情報の作成が完了しました"
+      update: "Task情報の更新が完了しました"
+      destroy: "Task情報の削除が完了しました"
