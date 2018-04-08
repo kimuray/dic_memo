@@ -10,9 +10,10 @@ Rails.application.routes.draw do
     resources :assigns
     resources :lines do
       resources :entries
-      resources :tasks
     end
   end
+
+  resources :tasks
 
   resources :users, only: [:edit, :update]
 end
