@@ -10,3 +10,7 @@ ja:
       update: "Project情報の更新が完了しました"
       destroy: "Project情報の削除が完了しました"
       not_edit: "Projectの作成者のみが編集削除を行えます"
+    lines:
+      create: "Line情報の作成が完了しました"
+      update: "Line情報の更新が完了しました"
+      destroy: "Line情報の削除が完了しました"
