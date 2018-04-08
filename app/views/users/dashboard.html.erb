@@ -3,12 +3,9 @@
 
 <% if user_signed_in? %>
   <p><%= link_to "log out", destroy_user_session_path, method: :delete %></p>
+  <p><%= link_to "Profile Edit", edit_user_path(current_user) %></p>
 <% else %>
   <p><%= link_to "user login", user_session_path, method: :get %></p>
 <% end %>
 
 <%= link_to 'Project', projects_path %>
-
-<p><%= link_to "log out", destroy_user_session_path, method: :delete %></p>
-<p><%= link_to "Profile Edit", edit_user_path(current_user) %></p>
-
