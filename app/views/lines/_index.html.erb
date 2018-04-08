@@ -10,10 +10,10 @@
   <tbody>
     <% lines.each do |line| %>
       <tr>
-        <td>ライン名：<%= line.name %></td>
-        <td>製作者：<%= line.user.try(:name) %></td>
+        <td>ライン名：<%= line.title %></td>
+        <td>製作者：<%= line.user.name %></td>
         <td><%= link_to 'Edit', edit_project_line_path(project, line) if current_user == line.user %></td>
-        <td><%= link_to 'Destroy', project_line(project, line), method: :delete, data: { confirm: 'Are you sure?' } if current_user == line.user %></td>
+        <td><%= link_to 'Destroy', project_line_path(project, line), method: :delete, data: { confirm: '本当に消して良いですか？' } if current_user == line.user %></td>
       </tr>
     <% end %>
   </tbody>
