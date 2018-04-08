@@ -1,6 +1,6 @@
 class AssignsController < ApplicationController
   def create
-    @emails = assign_user_params
+    @emails = email_params
     @project = Project.find(assign_params[:project_id])
     Project.assigned!(@project, @emails)
     redirect_to @project, notice: I18n.t("notice.assigns.create")
@@ -11,7 +11,7 @@ class AssignsController < ApplicationController
     params.require(:assign).permit(:project_id)
   end
 
-  def assign_user_params
+  def email_params
     params.require(:emails).split("\s")
   end
 end
