@@ -9,6 +9,9 @@ class User < ApplicationRecord
 
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
+  validates :name,  presence: true, length: { maximum: 20 }
+  validates :email, presence: true, length: { maximum: 255 },
+                    format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
 
   def self.create_from_email!(email)
     email.strip!
