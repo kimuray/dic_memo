@@ -12,13 +12,14 @@ gem 'rails', '~> 5.1.4'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 
-# Frontend
+# View/Front
 gem 'webpacker'
 
 # Backend
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'acts_as_list'
+gem 'paperclip'
 
 # Configration
 gem 'config'

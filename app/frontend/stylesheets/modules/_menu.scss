@@ -1,0 +1,85 @@
+.menu {
+  display: block;
+  position: absolute;
+  background: $navy;
+  top: 0;
+  right: -300px;
+  width: 240px;
+  transition: all .5s;
+  z-index: 100;
+
+  @at-root {
+    &.active {
+      right: 0;
+    }
+
+    &-list {
+      list-style: none;
+      padding: 0;
+
+      @at-root {
+        &-item {
+          border-bottom: 1px solid #fff;
+
+          &:hover {
+            opacity: 0.6;
+          }
+
+          @at-root {
+            &-link {
+              color: #fff;
+              display: block;
+              padding: 20px 40px;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+
+    &-close-btn {
+      display: inline-block;
+      position: relative;
+      margin: 5px 20px 10px 200px;
+      padding: 0;
+      width: 4px;
+      height: 20px;
+      background: #fff;
+      border: none;
+      transform: rotate(45deg);
+      cursor: pointer;
+
+      &:before {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -8px;
+        width: 20px;
+        height: 4px;
+        margin-top: -2px;
+        background: #fff;
+      }
+    }
+
+    &-btn {
+      display: block;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0 15px 0 0;
+      width: 30px;
+      color: #fff;
+      cursor: pointer;
+
+      &-bar {
+        display: block;
+        height: 2px;
+        background-color: #fff;
+        margin: 9px 0;
+        transition: all 0.2s;
+        transform-origin: 0 0;
+      }
+    }
+  }
+}
