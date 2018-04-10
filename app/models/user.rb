@@ -7,24 +7,22 @@ class User < ApplicationRecord
   has_many :assigns, dependent: :destroy
   has_many :assigned_projects, through: :assigns, source: :project
 
-  def self.assigned!(assign_params, user_params)
-    emails = user_params.split("\s")
-    informations = []
-    emails.each do |email|
-      email.strip!
-      next if ((/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i) =~ email).nil?
-      if User.find_by(email: email)
-        user = User.find_by(email: email)
-      elsif User.find_by(email: email).nil?
-        password = SecureRandom.hex(10)
-        user = User.create!(name: "user_0#{User.last.id + 1}", email: email, password: password)
-        informations << "#{user.email}の初期ユーザ名は#{user.name}で、初期パスワードは#{password}です。"
-      end
-      user.assigns.create!(assign_params) if Assign.find_by(project_id: assign_params[:project_id], user_id: user.id).nil?
-    end
-    informations
-  end
-
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
+  validates :name,  presence: true, length: { maximum: 20 }
+  validates :email, presence: true, length: { maximum: 255 },
+                    format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+
+  def self.create_from_email!(email)
+    email.strip!
+    return if ((/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i) =~ email).nil?
+    password = ""
+    if User.find_by(email: email)
+      user = User.find_by(email: email)
+    elsif User.find_by(email: email).nil?
+      password = SecureRandom.hex(10)
+      user = User.create!(name: "user_0#{User.last.id + 1}", email: email, password: password)
+    end
+    return user, password
+  end
 end

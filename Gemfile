@@ -48,6 +48,7 @@ group :development do
   gem 'bullet'
   gem 'rufo'
   gem 'rack-mini-profiler'
+  gem 'letter_opener'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
