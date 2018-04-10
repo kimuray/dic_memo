@@ -18,3 +18,6 @@ ja:
       create: "Task情報の作成が完了しました"
       update: "Task情報の更新が完了しました"
       destroy: "Task情報の削除が完了しました"
+    assigns:
+      create: "Assign情報の作成が完了しました"
+      destroy: "Assign情報の削除が完了しました"
