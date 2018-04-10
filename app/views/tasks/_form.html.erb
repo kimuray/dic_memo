@@ -1,0 +1,27 @@
+<%= form_with(model: @task, local: true) do |form| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class = "siimple-form-field">
+    <%= form.label :content %>
+    <%= form.text_area :content, class: "siimple-input siimple-input--fluid", autofocus: true %>
+  </div>
+
+  <div class = "siimple-form-field">
+    <%= form.label :expired_on %>
+    <%= form.date_field :expired_on, class: "siimple-input siimple-input--fluid" %>
+  </div>
+
+  <div class = "siimple-form-field">
+    <%= form.submit class: "siimple-btn siimple-btn--green" %>
+  </div>
+<% end %>

@@ -9,6 +9,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project.assigns.build
+    @lines = @project.lines
+    @tasks = Task.all
   end
 
   def new
@@ -42,15 +44,15 @@ class ProjectsController < ApplicationController
   end
 
   private
-    def set_project
-      @project = Project.find(params[:id])
-    end
+  def set_project
+    @project = Project.find(params[:id])
+  end
 
-    def authenticate_productor!
-      redirect_to @project, notice: I18n.t("notice.projects.not_edit") unless current_user == @project.user
-    end
+  def authenticate_productor!
+    redirect_to @project, notice: I18n.t("notice.projects.not_edit") unless current_user == @project.user
+  end
 
-    def project_params
-      params.require(:project).permit(:name)
-    end
+  def project_params
+    params.require(:project).permit(:name)
+  end
 end
