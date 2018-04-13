@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
 
   # TODO: あとから消す
   def taskboard
-    @project = Project.find(params[:project_id])
+    @project = Project.find(params[:id])
   end
 end

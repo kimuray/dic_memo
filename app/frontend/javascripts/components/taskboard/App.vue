@@ -24,7 +24,7 @@ import draggable from 'vuedraggable';
 import ProjectTask from './ProjectTask.vue';
 import AddTaskForm from './AddTaskForm';
 import store from '../../store/taskboard';
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   store,
@@ -44,5 +44,13 @@ export default {
       },
     }
   },
+  created() {
+    // 無理くりproject_idを取得する
+    const projectId = this.$root.$el.dataset.projectId;
+    this.initializeProject(projectId);
+  },
+  methods: {
+    ...mapActions(['initializeProject'])
+  }
 }
 </script>

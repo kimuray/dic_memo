@@ -44,6 +44,11 @@ const getters = {
 }
 
 const actions = {
+  initializeProject: ({ commit }, projectId) => {
+    axios.get(`/projects/${projectId}`).then(res => {
+      state.project = res.data.project;
+    });
+  },
   addTask: ({ commit }, task) => {
     commit('addTask', { task });
   },
