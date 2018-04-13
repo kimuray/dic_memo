@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :tasks
 
   resources :users, only: [:edit, :update]
+
+  get :taskboard, to: 'application#taskboard'
 end

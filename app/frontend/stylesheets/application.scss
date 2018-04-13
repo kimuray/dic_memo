@@ -1,4 +1,7 @@
+$fa-font-path: "~font-awesome/fonts";
 @import '~siimple/dist/siimple';
+@import '~font-awesome/scss/font-awesome';
+@import 'base';
 @import 'variables';
 @import 'components';
 @import 'modules';

@@ -7,8 +7,8 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
 
-  <body class="siimple-bg--grey">
-    <div class="siimple-layout">
+  <body>
+    <div class="siimple-layout full-height">
       <header class="header siimple-navbar siimple-navbar--blue">
         <div class="siimple-layout--left">
           <%= link_to 'DIC memo', root_path, class: 'siimple-navbar-title' %>
@@ -19,14 +19,15 @@
             <span class="menu-btn-bar menu-btn-bar--center"></span>
             <span class="menu-btn-bar menu-btn-bar--bottom"></span>
           </a>
-          <drawr-menu :is-active="isActive" @close="toggleMenu"></drawr-menu>
+          <drawr-menu v-show="isActive" :is-active="isActive" @close="toggleMenu"></drawr-menu>
         </div>
       </header>
-      <div class="container">
+      <div class="container full-height">
         <%= yield %>
       </div>
     </div>
 
     <%= javascript_pack_tag 'application' %>
+    <%= yield :loading_vuejs %>
   </body>
 </html>

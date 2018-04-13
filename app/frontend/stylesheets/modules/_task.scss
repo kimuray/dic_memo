@@ -1,0 +1,21 @@
+.task-form {
+  padding: 0 10px 20px 10px;
+}
+
+.task-textarea {
+  width: calc(100% - 20px);
+}
+
+.task-cancel {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.task-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
