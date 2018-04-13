@@ -16,4 +16,7 @@ Rails.application.routes.draw do
 
   resources :tasks
   resources :users, only: [:edit, :update]
+
+  namespace :api do
+  end
 end

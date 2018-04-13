@@ -1,5 +1,6 @@
 import Vue from 'vue/dist/vue.esm';
 import Vuex from 'vuex';
+import { axios } from '../utils/http-client';
 
 Vue.use(Vuex);
 
