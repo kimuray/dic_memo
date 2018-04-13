@@ -3,7 +3,7 @@ class Line < ApplicationRecord
 
   belongs_to :user
   belongs_to :project
-  has_many :tasks, dependent: :destroy
+  has_many :tasks, -> { order(:position) }, dependent: :destroy
 
   validates :title, presence: true
 end

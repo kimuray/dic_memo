@@ -1,10 +1,10 @@
 <template>
   <div class="project">
     <div class="project-board">
-      <div class="project-line" v-for="line in project">
+      <div class="project-line" v-for="line in project.lines">
         <div class="project-line-container">
           <div class="project-line-title">
-            <h3 class="project-line-title-text">{{ line.name }}</h3>
+            <h3 class="project-line-title-text">{{ line.title }}</h3>
           </div>
 
           <div class="project-line-list">
