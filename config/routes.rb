@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  namespace :api do
-    get 'projects/show'
-  end
-
   root 'users#dashboard'
 
   devise_for :users, controllers: {
@@ -23,5 +19,8 @@ Rails.application.routes.draw do
 
   namespace :api, { format: 'json' } do
     resources :projects, only: :show
+    resources :lines, only: [] do
+      resources :tasks, only: :create
+    end
   end
 end

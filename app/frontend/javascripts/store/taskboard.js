@@ -19,7 +19,13 @@ const actions = {
     });
   },
   addTask: ({ commit }, task) => {
-    commit('addTask', { task });
+    axios.post(`/lines/${task.lineId}/tasks`, {
+      content: task.content,
+      expired_on: '2018-04-13', // TODO: ハードコーディングなので要修正
+    }).then(res => {
+      const task = res.data;
+      commit('addTask', { task });
+    });
   },
   deleteTask: ({ commit }, task) => {
     commit('deleteTask', { task });
@@ -33,17 +39,17 @@ const actions = {
 
 const mutations = {
   addTask(state, { task }) {
-    const lineId = state.project.findIndex(({id}) => id === task.lineId);
-    state.project[lineId].tasks.push(task);
+    const lineId = state.project.lines.findIndex(line => line.id === task.line_id);
+    state.project.lines[lineId].tasks.push(task);
   },
   deleteTask(state, { task }) {
-    const lineId = state.project.findIndex(({id}) => id === task.lineId);
-    const newTasks = state.project[lineId].tasks.filter(t => t.id !== task.id);
-    state.project[lineId].tasks = newTasks;
+    const lineId = state.project.lines.findIndex(line => line.id === task.lineId);
+    const newTasks = state.project.lines[lineId].tasks.filter(t => t.id !== task.id);
+    state.project.lines[lineId].tasks = newTasks;
   },
   updateTask(state, { task }) {
-    const lineId = state.project.findIndex(({id}) => id === task.lineId);
-    state.project[lineId].tasks.map(t => {
+    const lineId = state.project.lines.findIndex(line => line.id === task.lineId);
+    state.project.lines[lineId].tasks.map(t => {
       return t.id === task.id ? task : t;
     });
   },
