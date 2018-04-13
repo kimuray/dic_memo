@@ -1,41 +1,11 @@
 import Vue from 'vue/dist/vue.esm';
 import Vuex from 'vuex';
+import { axios } from '../utils/http-client';
 
 Vue.use(Vuex);
 
 const state = {
-  project: [
-    {
-      id: 1,
-      name: 'Line1',
-      position: 0,
-      tasks: [
-        { id: 1, content: 'l1-task1', lineId: 1, position: 0 },
-        { id: 2, content: 'l1-task2', lineId: 1, position: 1 },
-        { id: 3, content: 'l1-task3', lineId: 1, position: 2 },
-      ]
-    },
-    {
-      id: 2,
-      name: 'Line2',
-      position: 1,
-      tasks: [
-        { id: 1, content: 'l2-task1', lineId: 2, position: 0 },
-        { id: 2, content: 'l2-task2', lineId: 2, position: 1 },
-        { id: 3, content: 'l2-task3', lineId: 2, position: 2 },
-      ]
-    },
-    {
-      id: 3,
-      name: 'Line3',
-      position: 2,
-      tasks: [
-        { id: 1, content: 'l3-task1', lineId: 3, position: 0 },
-        { id: 2, content: 'l3-task2', lineId: 3, position: 1 },
-        { id: 3, content: 'l3-task3', lineId: 3, position: 2 },
-      ]
-    },
-  ],
+  project: [],
 }
 
 const getters = {
@@ -43,8 +13,19 @@ const getters = {
 }
 
 const actions = {
+  initializeProject: ({ commit }, projectId) => {
+    axios.get(`/projects/${projectId}`).then(res => {
+      state.project = res.data.project;
+    });
+  },
   addTask: ({ commit }, task) => {
-    commit('addTask', { task });
+    axios.post(`/lines/${task.lineId}/tasks`, {
+      content: task.content,
+      expired_on: '2018-04-13', // TODO: ハードコーディングなので要修正
+    }).then(res => {
+      const task = res.data;
+      commit('addTask', { task });
+    });
   },
   deleteTask: ({ commit }, task) => {
     commit('deleteTask', { task });
@@ -58,17 +39,17 @@ const actions = {
 
 const mutations = {
   addTask(state, { task }) {
-    const lineId = state.project.findIndex(({id}) => id === task.lineId);
-    state.project[lineId].tasks.push(task);
+    const lineId = state.project.lines.findIndex(line => line.id === task.line_id);
+    state.project.lines[lineId].tasks.push(task);
   },
   deleteTask(state, { task }) {
-    const lineId = state.project.findIndex(({id}) => id === task.lineId);
-    const newTasks = state.project[lineId].tasks.filter(t => t.id !== task.id);
-    state.project[lineId].tasks = newTasks;
+    const lineId = state.project.lines.findIndex(line => line.id === task.lineId);
+    const newTasks = state.project.lines[lineId].tasks.filter(t => t.id !== task.id);
+    state.project.lines[lineId].tasks = newTasks;
   },
   updateTask(state, { task }) {
-    const lineId = state.project.findIndex(({id}) => id === task.lineId);
-    state.project[lineId].tasks.map(t => {
+    const lineId = state.project.lines.findIndex(line => line.id === task.lineId);
+    state.project.lines[lineId].tasks.map(t => {
       return t.id === task.id ? task : t;
     });
   },

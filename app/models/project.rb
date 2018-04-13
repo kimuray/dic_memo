@@ -3,9 +3,10 @@ class Project < ApplicationRecord
 
   has_many :assigns, dependent: :destroy
   has_many :assigned_users, through: :assigns, source: :user
-  has_many :lines, dependent: :destroy
+  has_many :lines, -> { order(:position) }, dependent: :destroy 
 
-  validates :title,  presence: true, length: { maximum: 50 }
+  validates :name,  presence: true, length: { maximum: 50 }
+
   def self.assigned!(project, emails)
     emails.each do |email|
       user, password = User.create_from_email!(email)

@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^3.3.0",
+    "axios": "^0.18.0",
     "font-awesome": "^4.7.0",
     "rails-ujs": "^5.1.5",
     "siimple": "^3.0.0",
