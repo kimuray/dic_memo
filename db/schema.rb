@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180408175226) do
+ActiveRecord::Schema.define(version: 20180413114302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20180408175226) do
     t.date "expired_on", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "line_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
@@ -79,4 +80,5 @@ ActiveRecord::Schema.define(version: 20180408175226) do
 
   add_foreign_key "assigns", "projects"
   add_foreign_key "assigns", "users"
+  add_foreign_key "tasks", "lines"
 end

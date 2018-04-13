@@ -11,11 +11,9 @@ Rails.application.routes.draw do
     resources :lines do
       resources :entries
     end
+    get :taskboard, to: 'application#taskboard', on: :member
   end
 
   resources :tasks
-
   resources :users, only: [:edit, :update]
-
-  get :taskboard, to: 'application#taskboard'
 end
